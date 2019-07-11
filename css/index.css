@@ -10,6 +10,7 @@ img{vertical-align: top;}
 .fr{float: right;}
 .bold{font-weight: bold;}
 .dib{display: inline-block;*zoom:1;*display: inline;}
+.vat{vertical-align: top;}
 .vam{vertical-align: middle;}
 .hidden{overflow: hidden;}
 .mt20{margin-top: 20px;}
@@ -56,7 +57,9 @@ body,html{
     overflow: hidden;
     line-height: 83px;
 }
-
+.logo-bar{
+    padding-top: 18px
+}
 .top-nav{
     width: 820px;
     font-size: 16px; 
@@ -67,6 +70,15 @@ body,html{
 .top-nav a.cur{
     color: #0f216d;
     font-weight: bold;
+}
+.top-nav .front,.top-nav .back{
+    display: block;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+}
+.top-nav a:hover .front,.top-nav a:hover .back{
+    transform:translateY(-100%) ;
+    -webkit-transform:translateY(-100%) ;
 }
 
 .btn-search{
@@ -227,6 +239,12 @@ body,html{
 .section__partner .section-content{
     padding-bottom: 20px;
 }
+.section__partner li a:hover img{
+    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.2);
+}
 
 .footer{
     background-color: #0f216d;
@@ -271,4 +289,34 @@ body,html{
 .foot-copyright{
     color: #3f4d8a;
     padding: 30px 0 20px 0;
+}
+
+.fade-up{
+    opacity: 0;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+}
+.active .fade-up{
+    animation: fadeUp 0.5s linear forwards;
+    -webkit-animation: fadeUp 0.5s cubic-bezier(0.1,0.5,0.8,1) forwards;
+}
+.active .delay1{
+    animation-delay: 0.3s;
+}
+.active .delay2{
+    animation-delay: 0.5s;
+}
+.active .delay3{
+    animation-delay: 0.7s;
+}
+
+@-webkit-keyframes fadeUp{
+    0%{
+        -webkit-transform: translateY(100%);
+        opacity: 0;
+    }
+    100%{
+        -webkit-transform: translateY(0);
+        opacity:1;
+    }
 }
